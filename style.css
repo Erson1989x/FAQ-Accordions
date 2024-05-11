@@ -1,0 +1,169 @@
+/* --- Reset --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+   --darkPurple: #301534;
+   --pink: #AD28EB;
+   --lightPink: #F8EEFF;
+   --palePink: #8B6990;
+   --white: #FFFFFF;
+}
+
+body {
+    background-color: var(--lightPink);
+    background-image: url(./assets/images/background-pattern-mobile.svg);
+    max-height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    display: grid;
+    place-content: center;
+    font-family: "Work Sans", sans-serif;
+}
+
+/* --- Main --- */
+
+.container {
+    max-width: 600px;
+    min-height: 565px;
+    overflow: hidden;
+    margin:9rem 2rem 0 2rem;
+    border: 1px solid black;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--palePink);
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.main-container img {
+    width: 24px;
+    height: 24px;
+}
+
+.accordion-main {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem ;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.header {
+    display: flex;
+    margin-top: 2.5rem;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    color: var(--darkPurple);
+}
+
+h2 {
+    order: 1;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--darkPurple);
+    transition: 0.4s ease;
+}
+
+h2:hover {
+    color: var(--pink);
+}
+
+h2.header-active {
+    color: var(--pink);
+}
+
+hr {
+    width: 267px;
+    height: 1px;
+    border: none;
+    color: var(--lightPink);
+    background-color: var(--lightPink);
+}
+
+/* --- Accordion --- */
+
+.accordion-content {
+    margin-top: 1.5rem;
+    transition: max-height 0.4s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+}
+
+.accordion-content p {
+    font-size: 1rem;
+    color: var(--palePink);
+}
+
+.accordion-button.active + .accordion-content {
+    display: block;
+}
+
+.accordion-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.accordion-one{
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-button img {
+    margin-left: 1.5rem;
+    cursor: pointer;
+    transform: rotate(0deg);
+}
+
+.accordion-button.active img {
+    transform: rotate(-180deg);
+}
+
+/* --- Media Queries --- */
+
+
+
+@media screen and (min-width: 1440px) {
+    body {
+        background-image: url(./assets/images/background-pattern-desktop.svg);
+    }
+
+    .container {
+        margin-top: 10.5rem;
+    }
+
+    .main-container {
+        padding: 2.5rem 2.5rem 0 2.5rem;
+    }
+
+    h1 {
+        font-size: 3.0rem;
+    }
+
+    .main-container img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
